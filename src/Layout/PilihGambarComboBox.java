@@ -29,10 +29,9 @@ public class PilihGambarComboBox extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ButtonPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        pilihanCMB = new javax.swing.JComboBox<>();
-        imagePanel = new javax.swing.JPanel();
+        pilihan = new javax.swing.JComboBox<>();
+        pCardLayout = new javax.swing.JPanel();
         Glassfish = new javax.swing.JLabel();
         JavaEE = new javax.swing.JLabel();
         PostgreSQL = new javax.swing.JLabel();
@@ -41,52 +40,56 @@ public class PilihGambarComboBox extends javax.swing.JFrame {
         setUndecorated(true);
 
         jLabel1.setText("Pilih Gambar");
-        ButtonPanel1.add(jLabel1);
 
-        pilihanCMB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Glassfish", "JavaEE", "PostgreSQL" }));
-        pilihanCMB.addItemListener(new java.awt.event.ItemListener() {
+        pilihan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Glassfish", "JavaEE", "PostgreSQL" }));
+        pilihan.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                pilihanCMBItemStateChanged(evt);
+                pilihanItemStateChanged(evt);
             }
         });
-        ButtonPanel1.add(pilihanCMB);
 
-        getContentPane().add(ButtonPanel1, java.awt.BorderLayout.PAGE_START);
-
-        imagePanel.setLayout(new java.awt.CardLayout());
+        pCardLayout.setLayout(new java.awt.CardLayout());
 
         Glassfish.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Glassfish.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Layout/c.jpg"))); // NOI18N
-        imagePanel.add(Glassfish, "0");
+        pCardLayout.add(Glassfish, "0");
 
         JavaEE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JavaEE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Layout/download.jpg"))); // NOI18N
-        imagePanel.add(JavaEE, "1");
+        pCardLayout.add(JavaEE, "1");
 
         PostgreSQL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Layout/download (1).jpg"))); // NOI18N
-        imagePanel.add(PostgreSQL, "2");
+        pCardLayout.add(PostgreSQL, "2");
 
-        getContentPane().add(imagePanel, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pCardLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pilihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pilihan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pCardLayout, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void pilihanCMBItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_pilihanCMBItemStateChanged
+    private void pilihanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_pilihanItemStateChanged
         // TODO add your handling code here:
-        if(pilihanCMB.getSelectedItem().equals("Glassfish")){
-            CardLayout cl = (CardLayout)(imagePanel.getLayout());
-            cl.show(imagePanel, "0");
-        }else
-            if(pilihanCMB.getSelectedItem().equals("JavaEE")){
-            CardLayout cl = (CardLayout)(imagePanel.getLayout());
-            cl.show(imagePanel, "1");
-        }else
-                if(pilihanCMB.getSelectedItem().equals("PostgreSQL")){
-            CardLayout cl = (CardLayout)(imagePanel.getLayout());
-            cl.show(imagePanel, "2");
-        }
-      
-    }//GEN-LAST:event_pilihanCMBItemStateChanged
+        CardLayout cl = (CardLayout) (pCardLayout.getLayout());
+        cl.show(pCardLayout, String.valueOf(pilihan.getSelectedIndex()));
+    }//GEN-LAST:event_pilihanItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -124,12 +127,11 @@ public class PilihGambarComboBox extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ButtonPanel1;
     private javax.swing.JLabel Glassfish;
     private javax.swing.JLabel JavaEE;
     private javax.swing.JLabel PostgreSQL;
-    private javax.swing.JPanel imagePanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JComboBox<String> pilihanCMB;
+    private javax.swing.JPanel pCardLayout;
+    private javax.swing.JComboBox<String> pilihan;
     // End of variables declaration//GEN-END:variables
 }
